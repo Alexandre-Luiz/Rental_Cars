@@ -1,0 +1,2 @@
+class RentalSubsidiary < ApplicationRecord
+end
