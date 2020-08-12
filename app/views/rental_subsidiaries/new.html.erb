@@ -1,0 +1,16 @@
+<%= form_with model: @rental_subsidiary, local: true do |form| %>
+  <div>
+    <%= form.label :name, 'Nome' %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :cnpj, 'CNPJ' %>
+    <%= form.text_field :cnpj %>
+  </div>
+  <div>
+    <%= form.label :adress, 'Endereço' %>
+    <%= form.text_field :adress %>
+  </div>
+
+  <%= form.submit 'Enviar'%>
+<% end %>
