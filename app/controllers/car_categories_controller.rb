@@ -29,7 +29,23 @@ class CarCategoriesController < ApplicationController
     end
   end
 
-  private
+  # action edit da o get no formulário de edição
+  def edit
+    @car_category = CarCategory.find(params[:id])
+  end
+
+  # action update envia as alterações feitas no edit
+  def update
+    @car_category = CarCategory.find(params[:id])
+    if @car_category.update(car_category_params)
+      redirect_to @car_category
+    else
+      render :edit
+    end
+  end
+
+private
+
   def car_category_params
     params.require(:car_category)
           .permit(:name, :daily_rate, :car_insurance, :third_party_insurance)
