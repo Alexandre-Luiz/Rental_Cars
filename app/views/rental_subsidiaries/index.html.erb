@@ -1,5 +1,7 @@
-<% @rental_subsidiaries.each do |subsidiary| %>
-  <%= link_to subsidiary.name, rental_subsidiary_path(id: subsidiary.id) %>
-<%end%>
+<div>
+  <% @rental_subsidiaries.each do |subsidiary| %>
+    <%= link_to subsidiary.name, rental_subsidiary_path(id: subsidiary.id) %>
+  <%end%>
+</div>
 
 <%= link_to 'Registrar nova subsidiária', new_rental_subsidiary_path %>

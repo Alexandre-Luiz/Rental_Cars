@@ -1,3 +1,9 @@
-<%= @rental_subsidiary.name %>
-<%= @rental_subsidiary.cnpj %>
-<%= @rental_subsidiary.adress %>
+<div>
+  <h1><%= @rental_subsidiary.name %></h1>
+</div>
+<dl>
+  <dt> CNPJ </dt>
+    <dd> <%= @rental_subsidiary.cnpj %> </dd>
+  <dt> Endereço </dt>
+    <dd> <%= @rental_subsidiary.adress %> </dd>
+</dl>

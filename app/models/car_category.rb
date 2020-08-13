@@ -9,5 +9,5 @@ class CarCategory < ApplicationRecord
   # Validação de registro único
   validates :name,
             uniqueness: {message: 'já está em uso', 
-                         case_sensitive: true}
+                         case_sensitive: false}
 end
