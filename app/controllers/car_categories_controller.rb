@@ -16,16 +16,17 @@ class CarCategoriesController < ApplicationController
   # Aqui sim tem-se um POST, ou seja, a submissão do form
   # É comum criar já com o permissionamento do que pode ser enviado para minha DB
   def create
-    #puts '======='
-    #puts params
-    #puts '======='
-    @car_category = CarCategory.create(car_category_params)
-    
-    # Redireciono para o show do objeto que criei acima
-    # Toda vez que eu executar algo que não for um get, preciso redirecionar para algum lugar
-    # Refatorando
-      #redirect_to car_category_path(id: @car_category.id)
-    redirect_to @car_category
+    @car_category = CarCategory.new(car_category_params)
+    if @car_category.save
+      # Redireciono para o show do objeto que criei acima
+      # Toda vez que eu executar algo que não for um get, preciso redirecionar para algum lugar
+      # Refatorando
+        #redirect_to car_category_path(id: @car_category.id)
+      redirect_to @car_category
+    else
+      #redirect_to new_car_category_path
+      render :new
+    end
   end
 
   private
