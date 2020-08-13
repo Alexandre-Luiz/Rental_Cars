@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Admin deletes manufacturer' do
+feature 'Admin deletes category' do
   scenario 'successfully' do
     CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
                         third_party_insurance: 10.5)

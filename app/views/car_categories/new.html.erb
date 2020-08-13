@@ -1,29 +1,4 @@
-<% if @car_category.errors.any? %>
-  <ul>
-    <% @car_category.errors.full_messages.each do |message| %>
-      <li> <%= message %> </li>
-    <% end %>
-  </ul>
-<% end %>
+<h1> Nova categoria </h1>
 
-
-<%= form_with model: @car_category, local: true do |form| %>
-  <div>
-    <%= form.label :name, 'Nome' %>
-    <%= form.text_field :name %>
-  </div>
-  <div>
-    <%= form.label :daily_rate, 'Diária' %>
-    <%= form.number_field :daily_rate %>
-  </div>
-  <div>
-    <%= form.label :car_insurance, 'Seguro do carro' %>
-    <%= form.number_field :car_insurance %>
-  </div>
-  <div>
-    <%= form.label :third_party_insurance, 'Seguro para terceiros' %>
-    <%= form.number_field :third_party_insurance %>
-  </div>
-
-  <%= form.submit 'Enviar' %>
-<% end %>
+<%= render partial:'form', 
+locals: {car_category: @car_category} %>

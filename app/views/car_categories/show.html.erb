@@ -21,3 +21,11 @@
 <div>
   <%= link_to 'Voltar', car_categories_path %>
 </div>
+
+<div>
+  <!-- Lembrar que a rota é idêntica ao edit, por isso 
+  tenho que colocar o method: :VERBO_HTTP para ele saber
+  para onde enviar -->
+  <%= link_to 'Apagar', car_category_path(params[:id]), method: :delete,
+  data: {confirm: 'Tem certeza que deseja apagar?'} %>
+</div>
