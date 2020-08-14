@@ -47,7 +47,7 @@ class CarCategoriesController < ApplicationController
   def destroy
     @car_category = CarCategory.find(params[:id])
     @car_category.destroy
-    #redireciona ao index
+    #redirecionando para a index
     redirect_to car_categories_path
   end
 private

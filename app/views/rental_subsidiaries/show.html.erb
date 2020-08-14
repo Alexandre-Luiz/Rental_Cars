@@ -7,3 +7,8 @@
   <dt> Endereço </dt>
     <dd> <%= @rental_subsidiary.adress %> </dd>
 </dl>
+
+<div>
+  <!--<%= link_to 'Editar', edit_rental_subsidiary_path(params[:id]) %> -->
+  <%= link_to 'Editar', edit_rental_subsidiary_path(@rental_subsidiary) %>
+</div>
