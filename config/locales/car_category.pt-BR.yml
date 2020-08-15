@@ -1,0 +1,13 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      car_category: 
+        one: 'Categoria de carro'
+        other: 'Categorias de carros'
+    attributes:
+      car_category:
+        name: 'Nome'
+        daily_rate: 'Diária'
+        car_insurance: 'Seguro do carro'
+        third_party_insurance: 'Seguro de terceiros'

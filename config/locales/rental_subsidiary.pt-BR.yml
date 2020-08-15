@@ -1,0 +1,12 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      rental_subsidiary: 
+        one: 'Filial'
+        other: 'Filiais'
+    attributes:
+      rental_subsidiary:
+        name: 'Nome'
+        cnpj: 'CNPJ'
+        adress: 'Endereço'

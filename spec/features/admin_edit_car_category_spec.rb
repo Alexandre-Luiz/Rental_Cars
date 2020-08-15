@@ -12,7 +12,7 @@ feature 'Admin edits manufacturer' do
     fill_in 'Nome', with: 'Flex'
     fill_in 'Diária', with: '80'
     fill_in 'Seguro do carro', with: '50'
-    fill_in 'Seguro para terceiros', with: '10'
+    fill_in 'Seguro de terceiros', with: '10'
     click_on 'Enviar'
 
     expect(page).to have_content('Flex')
@@ -33,7 +33,7 @@ feature 'Admin edits manufacturer' do
     fill_in 'Nome', with: ''
     fill_in 'Diária', with: ''
     fill_in 'Seguro do carro', with: ''
-    fill_in 'Seguro para terceiros', with: ''
+    fill_in 'Seguro de terceiros', with: ''
     click_on 'Enviar'
 
     expect(page).to have_content('não pode ficar em branco', count: 4)
