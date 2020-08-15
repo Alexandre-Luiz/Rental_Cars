@@ -23,8 +23,22 @@ feature 'Admin edit subsidiary' do
   end
 
   scenario 'can not be blank' do
-    # Validação dos campos para edição tem q preencher alguma
-    # coisa e retornar mensagem pro usuário
+    #arrange
+    RentalSubsidiary.create!(name:'Campinas', 
+                             cnpj:'82.190.506/0001-75', 
+                             adress: 'Av. Taquaral, 1000')
+    #act
+    visit root_path
+    click_on 'Subsidiárias'
+    click_on 'Campinas'
+    click_on 'Editar'
+    fill_in 'Nome', with: ''
+    fill_in 'CNPJ', with: ''
+    fill_in 'Endereço', with: ''
+    click_on 'Enviar'
+
+    #assert
+    expect(page).to have_content('não pode ficar em branco', count: 3)
   end
 
   scenario 'cnpj should be valid' do

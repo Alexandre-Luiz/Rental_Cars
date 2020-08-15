@@ -29,8 +29,12 @@ class RentalSubsidiariesController < ApplicationController
   end
 
   def update
-    @rental_subsidiary = RentalSubsidiary.update(rental_subsidiary_params)
-    redirect_to @rental_subsidiary
+    @rental_subsidiary = RentalSubsidiary.find(params[:id])
+    if @rental_subsidiary.update(rental_subsidiary_params)
+      redirect_to @rental_subsidiary #show
+    else
+      render :edit #render para ter acesso aos meus erros
+    end
   end
 
 private
