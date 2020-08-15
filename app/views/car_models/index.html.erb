@@ -1,0 +1,16 @@
+<h1> Modelos de carro </h1>
+
+<dl>
+  <% @car_models.each do |car_model| %>
+    <div>
+      <dd>'Fabricante'</dd>
+      <dt> <%= car_model.manufacturer %> </dt>
+
+      <dd> 'Nome' </dd>
+      <dt> <%= car_model.name %> </dt>
+
+      <dd> 'Ano de fabricação' </dd>
+      <dt> <%= car_model.year %> </dt>
+    </div>
+  <% end %>
+</dl>
