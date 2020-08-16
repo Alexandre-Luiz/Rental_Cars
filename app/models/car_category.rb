@@ -1,4 +1,7 @@
 class CarCategory < ApplicationRecord
+  
+  has_many :car_models
+  
   # Validações de presença (campo em branco)
   validates :name, 
             :daily_rate, 

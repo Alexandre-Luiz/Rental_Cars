@@ -1,0 +1,10 @@
+<h1> <%= @car_model.name %> </h1>
+<ul>
+  <li> <%= "#{CarModel.human_attribute_name(:year)}: #{@car_model.year}" %> </li>
+  <li> <%= "#{CarModel.human_attribute_name(:manufacturer)}: #{@car_model.manufacturer}" %> </li>
+  <li> <%= "#{CarModel.human_attribute_name(:motorization)}: #{@car_model.motorization}" %> </li>
+  <li> <%= "#{CarModel.human_attribute_name(:car_category)}: #{@car_model.car_category.name}" %> </li>
+  <li> <%= "#{CarModel.human_attribute_name(:fuel_type)}: #{@car_model.fuel_type}" %> </li>
+  
+  
+</ul>

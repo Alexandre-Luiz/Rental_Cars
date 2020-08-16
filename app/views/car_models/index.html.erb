@@ -1,16 +1,23 @@
 <h1> Modelos de carro </h1>
+<h5> Clique no carro para detalhes </h5>
+
+<% if @car_models.empty? %>
+  <h3> <%= 'Nenhum modelo de carro cadastrado' %> </h3>
+<% end %>
 
 <dl>
   <% @car_models.each do |car_model| %>
     <div>
+      <dd> 'Nome' </dd>
+      <dt> <%= link_to car_model.name, car_model_path(id: car_model.id) %> </dt>
+
       <dd>'Fabricante'</dd>
       <dt> <%= car_model.manufacturer %> </dt>
-
-      <dd> 'Nome' </dd>
-      <dt> <%= car_model.name %> </dt>
 
       <dd> 'Ano de fabricação' </dd>
       <dt> <%= car_model.year %> </dt>
     </div>
   <% end %>
 </dl>
+
+<%= link_to 'Voltar', root_path %>
