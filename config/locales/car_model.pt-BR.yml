@@ -3,13 +3,14 @@ pt-BR:
   activerecord:
     models:
       car_model: 
-        one: 'Modelo de carro'
-        other: 'Modelos de carro'
+        one: Modelo de carro
+        other: Modelos de carro
     attributes:
       car_model:
-        name: 'Nome'
-        year: 'Ano'
-        manufacturer: 'Ford'
-        motorization: 'Potência'
-        car_category: 'Categoria'
-        fuel_type: 'Combustível'
+        name: Nome
+        year: Ano
+        manufacturer: Fabricante
+        motorization: Potência
+        fuel_type: Combustível
+        car_category: Categoria de carro
+        car_category_id: Categoria de carro

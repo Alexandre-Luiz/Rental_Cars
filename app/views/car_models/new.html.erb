@@ -1,0 +1,39 @@
+<% if @car_model.errors.any? %>
+  <ul>
+    <% @car_model.errors.full_messages.each do |error| %>
+      <li> <%= error%> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @car_model, local: true do |form|%>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :year %>
+    <%= form.text_field :year %>
+  </div>
+  <div>
+    <%= form.label :manufacturer %>
+    <%= form.text_field :manufacturer %>
+  </div>
+  <div>
+    <%= form.label :motorization %>
+    <%= form.text_field :motorization %>
+  </div>
+  <div>
+    <!-- <%= form.label :car_category %> -->
+    <!-- 1 <%= form.select :car_category, options_for_select(@car_categories.map{ |car_category| [car_category.name, car_category.id] }) %> -->
+    <!-- 2 <%= form.select :car_category, options_from_collection_for_select(@car_categories, :id, :name) %> -->
+    <%= form.label :car_category_id %>
+    <%= form.collection_select(:car_category_id, @car_categories, :id, :name, prompt: 'Escolha uma categoria') %>
+  </div>
+  <div>
+    <%= form.label :fuel_type %>
+    <%= form.text_field :fuel_type %>
+  </div>
+
+  <%= form.submit 'Enviar' %>
+<% end %>
