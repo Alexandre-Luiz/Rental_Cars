@@ -1,0 +1,7 @@
+<h3> Cliente <%= @client.name %> cadastrado </h3>
+
+<ul>
+  <li> <%= "#{Client.human_attribute_name(:name)}: #{@client.name}" %> </li>
+  <li> <%= "#{Client.human_attribute_name(:cpf)}: #{@client.cpf}" %> </li>
+  <li> <%= "#{Client.human_attribute_name(:email)}: #{@client.email}" %> </li>
+</ul>

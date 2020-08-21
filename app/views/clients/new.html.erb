@@ -1,0 +1,23 @@
+<% if @client.errors.any? %>
+  <ul>
+    <% @client.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @client, local: true do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name%>
+  </div>
+  <div>
+    <%= form.label :cpf %>
+    <%= form.number_field :cpf %>
+  </div>
+  <div>
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <%= form.submit 'Cadastrar' %>
+<% end %>
