@@ -1,4 +1,6 @@
 class RentalSubsidiariesController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update]
+  
   def index
     @rental_subsidiaries = RentalSubsidiary.all
   end

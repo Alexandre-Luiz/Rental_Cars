@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 feature 'Admin view subsidiaries' do
+  scenario 'musb be logged in' do
+    visit root_path
+    click_on 'Subsidiárias'
+
+    expect(current_path).to eq new_user_session_path
+  end
+  
   scenario 'successfully' do
     RentalSubsidiary.create!(name:'São Paulo', 
                              cnpj:'71.734.693/0001-94', 
@@ -8,7 +15,11 @@ feature 'Admin view subsidiaries' do
     RentalSubsidiary.create!(name:'Recife', 
                              cnpj:'52.536.790/0001-28', 
                              adress:'Av. Conde de Boa Vista')
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Subsidiárias'
 
@@ -23,7 +34,11 @@ feature 'Admin view subsidiaries' do
     RentalSubsidiary.create!(name:'Recife', 
                              cnpj:'52.536.790/0001-28', 
                              adress:'Av. Conde de Boa Vista')
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
 
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Subsidiárias'
     click_on 'São Paulo'

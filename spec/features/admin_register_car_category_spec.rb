@@ -1,7 +1,23 @@
 require 'rails_helper'
 
 feature 'Admin register manufacturer' do
+  # Quero garantir que meu usuário esteja logado para acessar os links
+  scenario 'must be signed in' do
+    visit root_path
+    click_on 'Categorias'
+
+    #Quando clico e não estiver logado, deve me jogar para página de login
+    expect(current_path).to eq new_user_session_path
+    expect(page).to have_content 'Para continuar, faça login ou registre-se.'
+  end
+
   scenario 'from index page' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+
+    user_login(user)
+
     visit root_path
     click_on 'Categorias'
 
@@ -10,6 +26,11 @@ feature 'Admin register manufacturer' do
   end
 
   scenario 'successfully' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+    login_as(user, scope: :user)
+
     visit root_path
     click_on 'Categorias'
     click_on 'Registrar uma nova categoria'

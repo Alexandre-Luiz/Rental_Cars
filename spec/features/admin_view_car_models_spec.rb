@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 feature 'admin sees car models' do
+  scenario 'must be logged in' do
+    visit root_path
+    click_on 'Modelos de carro'
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   scenario 'and view list of car models registered' do
     #arrange
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 20, 
@@ -11,8 +18,12 @@ feature 'admin sees car models' do
     CarModel.create!(name: 'Gol', year: 2020, 
                      manufacturer: 'Volkswagen', motorization: '1.0', 
                      car_category: car_category, fuel_type: 'Gasolina')
-    
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+
     #act
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
 
@@ -34,8 +45,11 @@ feature 'admin sees car models' do
     CarModel.create!(name: 'Ka', year: 2019, 
                      manufacturer: 'Ford', motorization: '1.0', 
                      car_category: car_category, fuel_type: 'Flex')
-    
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
     #act
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
     click_on 'Ka'
@@ -50,6 +64,11 @@ feature 'admin sees car models' do
   end
 
   scenario 'nothing is registered' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+    
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
 

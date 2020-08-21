@@ -1,15 +1,24 @@
 require 'rails_helper'
 
 feature 'Admin register car model' do
+  scenario 'must be logged in' do
+    visit root_path
+    click_on 'Modelos de carro' 
+    expect(current_path).to eq new_user_session_path
+  end
+  
   scenario 'successfully register car model' do
     #arrenge
+      # Não precisa cadastrar modelo porque só preciso da categoria 
     CarCategory.create!(name: 'Top', 
                         daily_rate: '20', car_insurance: '30', 
                         third_party_insurance: '40')
-
-      # Não precisa cadastrar modelo porque só preciso da categoria 
-
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+      
     #act
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
     click_on 'Cadastrar novo modelo de carro'
@@ -31,7 +40,12 @@ feature 'Admin register car model' do
   end
 
   scenario 'must fill in all fields' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+    
     # Veja que eu por ter criado o prompt, não preciso mandar o capybara selecionar 'nada' na categoria
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Modelos de carro'
     click_on 'Cadastrar novo modelo de carro'
