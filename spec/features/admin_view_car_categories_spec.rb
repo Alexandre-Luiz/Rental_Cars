@@ -49,6 +49,14 @@ feature 'Admin view car categories' do
     expect(page).not_to have_content('Flex')
   end
 
+  scenario 'but must be logged in to view details' do
+    top = CarCategory.create!(name: 'Top', daily_rate: 105.5, car_insurance: 58.5,
+                                  third_party_insurance: 10.5)
+    
+    visit car_category_path(top)
+
+    expect(current_path).to eq new_user_session_path
+  end
   scenario 'and no car categories are created' do
     user = User.create!(name: 'Alexandre Elias', 
                         email: 'alexandre@email.com', 

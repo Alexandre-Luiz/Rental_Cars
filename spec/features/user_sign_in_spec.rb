@@ -43,6 +43,7 @@ feature 'User sign in' do
 
     expect(page).to have_content 'Logout efetuado com sucesso'
     expect(page).to have_link 'Entrar'
+    expect(page).not_to have_link 'Sair'
     expect(page).not_to have_content 'Alexandre Elias'
   end
 end

@@ -1,0 +1,19 @@
+<%= form_with model: @rental, local: true do |form| %>
+  <div>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+  </div>
+  <div>
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+  </div>
+  <div>
+    <%= form.label :client_id %>
+    <%= form.collection_select(:client_id, @clients, :id, :client_information) %>
+  </div>
+  <div>
+    <%= form.label :car_category_id %>
+    <%= form.collection_select(:car_category_id, @car_categories, :id, :name) %>
+  </div>
+  <%= form.submit 'Agendar'%>
+<% end %>

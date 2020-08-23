@@ -8,6 +8,13 @@ feature 'Admin register subsidiary' do
     expect(current_path).to eq new_user_session_path
   end
   
+  scenario 'Must be logged in to create a new subsidiary' do
+    
+    visit new_rental_subsidiary_path
+
+    expect(current_path).to eq new_user_session_path
+  end
+
   scenario 'successfully' do
     user = User.create!(name: 'Alexandre Elias', 
                         email: 'alexandre@email.com', 

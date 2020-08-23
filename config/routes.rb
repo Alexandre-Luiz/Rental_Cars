@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :rental_subsidiaries
   resources :car_models, only: [:index, :show, :new, :create]
   resources :clients, only: [:new, :create, :show]
+  resources :rentals, only: [:index, :show, :new, :create, ]
 end

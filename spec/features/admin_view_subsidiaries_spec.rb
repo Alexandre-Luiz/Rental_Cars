@@ -49,4 +49,13 @@ feature 'Admin view subsidiaries' do
     expect(page).not_to have_content('Recife')
   end
 
+  scenario 'must be logged in to see details of subsidiary' do
+    subsidiary = RentalSubsidiary.create!(name:'São Paulo', 
+                             cnpj:'71.734.693/0001-94', 
+                             adress:'Av. Paulista')
+                            
+    visit rental_subsidiary_path(subsidiary)
+
+    expect(current_path).to eq new_user_session_path
+  end
 end

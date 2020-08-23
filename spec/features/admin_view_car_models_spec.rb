@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'admin sees car models' do
-  scenario 'must be logged in' do
+  scenario 'but must be logged in' do
     visit root_path
     click_on 'Modelos de carro'
 
@@ -38,7 +38,19 @@ feature 'admin sees car models' do
 
   end
 
-  scenario 'show details' do
+  scenario 'must be logged in to view details' do
+    car_category = CarCategory.create!(name: 'Basic', daily_rate: 20, 
+                                      car_insurance: 50, third_party_insurance: 100 )
+    car_model = CarModel.create!(name: 'Ka', year: 2019, 
+                     manufacturer: 'Ford', motorization: '1.0', 
+                     car_category: car_category, fuel_type: 'Flex')
+                    
+    visit car_model_path(car_model)
+
+    expect(current_path).to eq new_user_session_path
+  end
+
+  scenario 'and show details of the model' do
     #arrange
     car_category = CarCategory.create!(name: 'Basic', daily_rate: 20, 
                                        car_insurance: 50, third_party_insurance: 100 )

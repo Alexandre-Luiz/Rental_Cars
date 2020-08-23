@@ -1,0 +1,14 @@
+<ul>
+  <li> <%= "#{Rental.human_attribute_name(:start_date)}: #{localize @rental.start_date}" %> </li>
+  <li> <%= "#{Rental.human_attribute_name(:end_date)}: #{localize @rental.end_date}" %> </li>
+  <li> <%= "#{Rental.human_attribute_name(:client)}: #{@rental.client.name}" %> </li>
+  <li> <%= "#{Client.human_attribute_name(:cpf)}: #{@rental.client.cpf}" %> </li>
+  <li> <%= "#{Client.human_attribute_name(:email)}: #{@rental.client.email}" %> </li>
+  <li> <%= "#{Rental.human_attribute_name(:car_category)}: #{@rental.car_category.name}" %> </li>
+  <li> <%= "#{Rental.human_attribute_name(:car_category)}: #{@rental.car_category.name}" %> </li>
+  <li> <%= number_to_currency @rental.ticket_calculation %> </li>
+  <li> <%= "#{Rental.human_attribute_name(:car_category)}: #{@rental.car_category.name}" %> </li>
+
+  
+</ul>
+
