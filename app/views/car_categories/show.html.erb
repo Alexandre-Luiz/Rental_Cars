@@ -15,15 +15,15 @@
 </dl>
 
 <div>
-  <h5> Lista de modelos da categoria <%= @car_category.name %> </h5>
+  <h5> Lista de modelos da categoria <%= @car_category.name %>: </h5>
   <% if @car_category.car_models.any? %>
     <ul>
     <% @car_category.car_models.each do |car_model| %>
-      <li> <%= car_model.name %> </li>
+      <li> <%= link_to "#{car_model.name} - #{car_model.year}", car_model_path(id: car_model.id) %> </li>
     <% end %>
     </ul>
   <% else %>
-    <p>Nenhum modelo de carro registrado nesta categoria </p>
+    <p> Nenhum modelo de carro registrado nesta categoria </p>
   <% end %>
 </div>
 
