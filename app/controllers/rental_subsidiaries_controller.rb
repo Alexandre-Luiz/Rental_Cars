@@ -20,10 +20,12 @@ class RentalSubsidiariesController < ApplicationController
     #puts '==================='
     #puts params
     #puts '==================='
-    @rental_subsidiary = RentalSubsidiary.create(rental_subsidiary_params)
-    
-    #redirect_to rental_subsidiary_path(id: @rental_subsidiary.id)
-    redirect_to @rental_subsidiary
+    @rental_subsidiary = RentalSubsidiary.new(rental_subsidiary_params)
+    if @rental_subsidiary.save
+      redirect_to @rental_subsidiary, notice: 'Filial criada com sucesso'
+    else
+      render :new
+    end
   end
 
   def edit

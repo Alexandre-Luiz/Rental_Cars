@@ -19,7 +19,7 @@ class RentalsController < ApplicationController
     # Para preenche-lo basta utilizar o método do devise e agora todos
     # atributos do meu model rental estão preenchidos
     @rental.user = current_user
-    @rental.save!
+    @rental.save
     redirect_to @rental, notice: 'Agendamento realizado com sucesso'
 
   end

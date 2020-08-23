@@ -43,17 +43,49 @@ feature 'Admin register a client' do
                         email: 'alexandre@email.com', 
                         password: '123456789')
     
-  
     login_as(user, scope: :user)
-
     visit root_path
     click_on 'Cadastrar cliente'
     click_on 'Cadastrar'
 
-    
     expect(page).to have_content('Nome não pode ficar em branco')
     expect(page).to have_content('CPF não pode ficar em branco')
     expect(page).to have_content('Email não pode ficar em branco')
+  end
+
+  scenario 'and CPF must be valid' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+
+    login_as(user, scope: :user)
+    visit root_path
+    click_on 'Cadastrar cliente'
+    fill_in 'CPF', with: '111.111.111-99'
+    click_on 'Cadastrar'
+
+    expect(page).to have_content('CPF não é válido')
+  end
+
+  scenario 'and CPF must be unique' do
+    user = User.create!(name: 'Alexandre Elias', 
+                        email: 'alexandre@email.com', 
+                        password: '123456789')
+
+    login_as(user, scope: :user)
+    visit root_path
+    click_on 'Cadastrar cliente'
+    fill_in 'Nome', with: 'Rafael'
+    fill_in 'CPF', with: '156.440.570-20'
+    fill_in 'Email', with: 'rafael@email.com'
+    click_on 'Cadastrar'
+    
+    visit root_path
+    click_on 'Cadastrar cliente'
+    fill_in 'CPF', with: '156.440.570-20'
+    click_on 'Cadastrar'
+
+    expect(page).to have_content('CPF já cadastrado')
   end
 
 end

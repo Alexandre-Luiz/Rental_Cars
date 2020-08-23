@@ -27,4 +27,15 @@ feature 'Admin schedules a rental' do
     expect(page).to have_content('R$ 600,00')
     expect(page).to have_content('Agendamento realizado com sucesso')
   end
+  scenario 'must fill in all fields on scheduling' do
+    visit root_path
+    click_on 'Locações'
+    click_on 'Agendar nova locação'
+    click_on 'Agendar'
+  end
+
+  scenario 'must be logged in to view rentals' do
+  end
+  scenario 'must be logged in to schedule a rental' do
+  end
 end
