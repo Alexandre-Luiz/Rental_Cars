@@ -5,5 +5,8 @@
   <li> <%= "#{CarModel.human_attribute_name(:motorization)}: #{@car_model.motorization}" %> </li>
   <li> <%= "#{CarModel.human_attribute_name(:car_category)}: #{@car_model.car_category.name}" %> </li>
   <li> <%= "#{CarModel.human_attribute_name(:fuel_type)}: #{@car_model.fuel_type}" %> </li>
-  
 </ul>
+
+<div>
+  <%= link_to 'Voltar', car_models_path %>
+</div>
