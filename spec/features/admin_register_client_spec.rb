@@ -4,6 +4,7 @@ feature 'Admin register a client' do
   scenario 'must be logged to register a client' do
     
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
 
     expect(current_path).to eq new_user_session_path
@@ -25,15 +26,16 @@ feature 'Admin register a client' do
     #act
     login_as(user, scope: :user)
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
     fill_in 'Nome', with: 'Rafael'
-    fill_in 'CPF', with: '443.004.310-86'
+    fill_in 'CPF', with: '525.973.050-07'
     fill_in 'Email', with: 'rafael@email.com'
     click_on 'Cadastrar'
 
     expect(current_path).to eq client_path(Client.last.id)
     expect(page).to have_content('Rafael')
-    expect(page).to have_content('443.004.310-86')
+    expect(page).to have_content('525.973.050-07')
     expect(page).to have_content('rafael@email.com')
   end
 
@@ -45,6 +47,7 @@ feature 'Admin register a client' do
     
     login_as(user, scope: :user)
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
     click_on 'Cadastrar'
 
@@ -60,6 +63,7 @@ feature 'Admin register a client' do
 
     login_as(user, scope: :user)
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
     fill_in 'CPF', with: '111.111.111-99'
     click_on 'Cadastrar'
@@ -74,6 +78,7 @@ feature 'Admin register a client' do
 
     login_as(user, scope: :user)
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
     fill_in 'Nome', with: 'Rafael'
     fill_in 'CPF', with: '156.440.570-20'
@@ -81,6 +86,7 @@ feature 'Admin register a client' do
     click_on 'Cadastrar'
     
     visit root_path
+    click_on 'Clientes'
     click_on 'Cadastrar cliente'
     fill_in 'CPF', with: '156.440.570-20'
     click_on 'Cadastrar'

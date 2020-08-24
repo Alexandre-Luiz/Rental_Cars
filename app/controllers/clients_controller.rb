@@ -1,6 +1,10 @@
 class ClientsController < ApplicationController
-  before_action :authenticate_user!, only:[:new, :create, :show]
+  before_action :authenticate_user!, only:[:index, :new, :create, :show]
   
+  def index
+    @clients = Client.all
+  end
+
   def new
     @client = Client.new
   end
@@ -16,6 +20,10 @@ class ClientsController < ApplicationController
 
   def show
     @client = Client.find(params[:id])
+  end
+
+  def search
+    @clients = Client.where('name like ?', "%#{params[:q]}")
   end
 
   private

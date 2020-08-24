@@ -34,8 +34,8 @@ feature 'Admin schedules a rental' do
     click_on 'Agendar'
   end
 
-  scenario 'must be logged in to view rentals' do
+  xscenario 'must be logged in to view rentals' do
   end
-  scenario 'must be logged in to schedule a rental' do
+  xscenario 'must be logged in to schedule a rental' do
   end
 end

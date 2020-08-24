@@ -1,0 +1,9 @@
+<h1> Resultados da pesquisa </h1>
+
+<% @clients.each do |client| %>
+  <h4><%= "#{Client.human_attribute_name(:name)}: #{client.name}" %> </h3>
+  <ul>
+    <li> <%= "#{Client.human_attribute_name(:cpf)}: #{client.cpf}" %> </li>
+    <li> <%= "#{Client.human_attribute_name(:email)}: #{client.email}" %> </li>
+  </ul>
+<% end %>

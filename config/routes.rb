@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :car_categories 
   resources :rental_subsidiaries
   resources :car_models, only: [:index, :show, :new, :create]
-  resources :clients, only: [:new, :create, :show]
+  resources :clients, only: [:index,:new, :create, :show]
   resources :rentals, only: [:index, :show, :new, :create, ]
+
+  get 'search', to: 'clients#search'
 end
