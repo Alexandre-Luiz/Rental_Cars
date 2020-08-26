@@ -1,3 +1,23 @@
 <div>
   <%= link_to 'Agendar nova locação', new_rental_path %>
 </div>
+<div>
+  <%= form_with url: rentals_search_path, local: true, method: :get do |form| %>
+    <%= form.label :q, 'Busca de locação' %>
+    <%= form.text_field :q %>
+    <%= form.submit 'Buscar' %>
+  <% end %>
+</div>
+
+<h1> Resultados da pesquisa </h1>
+
+<% @rentals.each do |rental| %>
+  <h4><%= "#{Client.human_attribute_name(:token)}: #{rental.token}" %> </h3>
+  <ul>
+    <li> <%= "#{Client.human_attribute_name(:name)}: #{rental.client.name}" %> </li>
+    <li> <%= "#{Client.human_attribute_name(:cpf)}: #{rental.client.cpf}" %> </li>
+    <li> <%= "#{Client.human_attribute_name(:email)}: #{rental.client.email}" %> </li>
+    <li> <%= "#{CarCategory.human_attribute_name(:name)}: #{rental.car_category.name}" %> </li>
+    <li> <%= "#{User.human_attribute_name(:user)}: #{rental.user.email}" %> </li>
+  </ul>
+<% end %>

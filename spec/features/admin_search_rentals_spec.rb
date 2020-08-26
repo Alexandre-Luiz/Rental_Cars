@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin searches rental' do
-  xscenario 'by CPF successfully' do
+  scenario 'by location code successfully' do
     
   end
 end

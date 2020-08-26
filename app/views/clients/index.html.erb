@@ -4,7 +4,7 @@
   <%= link_to 'Cadastrar cliente', new_client_path %>
 </div>
 
-<%= form_with url: search_path, method: :get do %>
+<%= form_with url: clients_search_path, method: :get, local: true do %>
   <%= label_tag :q, 'Busca' %>
   <%= text_field_tag :q %>
   <%= submit_tag 'Pesquisar' %>
