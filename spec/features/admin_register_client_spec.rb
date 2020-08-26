@@ -1,16 +1,7 @@
 require 'rails_helper'
 
 feature 'Admin register a client' do
-  scenario 'must be logged to register a client' do
-    
-    visit root_path
-    click_on 'Clientes'
-    click_on 'Cadastrar cliente'
-
-    expect(current_path).to eq new_user_session_path
-  end
-
-  scenario 'must be logged in to see the register form' do
+  scenario 'must be logged in to register' do
     
     visit new_client_path
 
