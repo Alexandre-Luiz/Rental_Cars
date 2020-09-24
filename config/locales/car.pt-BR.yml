@@ -1,0 +1,12 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      car: Carro
+    attributes:
+      car:
+        license_plate: Placa
+        color: Cor
+        mileage: Quilometragem
+        car_model: Modelo
+        car_model_id: Modelo
